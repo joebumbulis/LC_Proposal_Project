@@ -1,0 +1,73 @@
+<h1>Proposal</h1>
+
+<p>
+  <span>Client:</span>
+</p>
+<p>
+  <span>Project:</span>
+  <%= @proposal.project.name %>
+</p>
+<p>
+  <span>Prepared for:</span>
+  <%= @proposal.prepared_for %>
+</p>
+<p>
+  <span>Prepared by:</span>
+  <%= @proposal.prepared_by %>
+</p>
+<p>
+  <span>Date Created:</span>
+  <%= @proposal.date_created %>
+</p>
+<h3>SUMMARY OF SCOPE</h3>
+<h4>Goals</h4>
+<p>
+  <%= @proposal.project_goals %>
+</p>
+<h4>Proposed Implementation</h4>
+<p>
+  <%= @proposal.project_implementation %>
+</p>
+<h4>Project Outline</h4>
+<p>
+  <%= @proposal.project_outline %>
+</p>
+<h4>TIME AND COST ESTIMATE</h4>
+<p>When building any software project, two of the most important things for a business to know are the expected completion time and the cost. The use of short 1 to 2 week 'iterations' (or 'sprints') allow us to keep our scope small and our delivery times of working software consistent. Breaking estimates into an optimistic and pessimistic number gives everyone involved a clear understanding of where the risks are. The following is a distillation of the above proposed outline broken into actionable 'iterations'. Some bullet points have been combined into others to ensure each iteration is providing the most value and feels cohesive. These estimates are to provide you with the ability to best understand the scope of work at hand and the risks involved. Due to the iterative nature of development, these milestones could be tackled in any order that suits the business the most. It is also common and highly encouraged to revisit our existing priorities and estimates after each iteration to ensure we are working with the most up-to-date knowledge on the most important features. </p>
+<p>Quantities are in 1 week units at a rate of 4,000.00 USD per full work week per developer devoted to the project full time. i.e. A feature with an estimate of 2 could reasonably be completed by 2 developers in 1 week or 1 developer over 2 weeks, but the cost would remain the same.</p>
+<p>
+  <%= @proposal.estimate %>
+</p>
+<h4>ESTIMATED TIMELINE</h4>
+<p>"Below is the proposed earlier start time and length of engagement accounting for holidays and other breaks that will occur.
+  As with the rest of the proposal, this timeline is only an estimation and subject to change. The below timeline assumes there is one full time developer with the start date:,
+</p>
+<p>
+  <%= @proposal.proposed_start_date %>
+</p>
+<p>In this form builder, there should be a note to the preparer that the below timelines are created by an algorithm based off the assumed start date. Need to build that algorithm. </p>
+<p>
+  <h6>Optimistic Timeline</h6>
+  <h6>Averaged Timeline</h6>
+  <h6>Pessimistic Timeline</h6>
+</p>
+<h2>Comments:</h2>
+<%= render @proposal.comments %>
+
+<h2>Add a Comment:</h2>
+<%= form_with(model: [ @proposal.project, @proposal, @proposal.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to "Back", project_path(@proposal.project.id) %>
+<%= link_to "Edit", edit_project_proposal_path(@proposal.project_id, @proposal.id) %>

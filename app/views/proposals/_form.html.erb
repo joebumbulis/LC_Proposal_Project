@@ -1,0 +1,80 @@
+<%= form_with model: [@project, @proposal], html: {class: "proposal_form"}, local: true do |form| %>
+  <%= form.hidden_field :project_id, value: params[:project_id]%>
+
+    <% if @proposal.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@proposal.errors.count, "error") %>
+           prohibited this proposal from being saved:
+        </h2>
+        <ul>
+          <% @proposal.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <p>
+    <span>Project:</span>
+    <%= @project.name %>
+  </p>
+  <p>
+    <%= form.label :proposal_name %>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :prepared_for %>
+    <%= form.text_field :prepared_for %>
+  </p>
+  <p>
+    <%= form.label :prepared_by %>
+    <%= form.text_field :prepared_by %>
+  </p>
+  <p>
+    <%= form.label :date_created %>
+    <%= form.date_field :date_created? %>
+
+  </p>
+  <h3>SUMMARY OF SCOPE</h3>
+  <h4>Goals</h4>
+  <p>
+    <%= form.label :project_goals %>
+    <%= form.text_field :project_goals %>
+  </p>
+  <h4>Proposed Implementation</h4>
+  <p>
+    <%= form.label :project_implementation %>
+    <%= form.text_field :project_implementation %>
+  </p>
+    <h4>Project Outline</h4>
+  <p>
+    <%= form.label :project_outline %>
+    <%= form.text_field :project_outline %>
+  </p>
+  <h4>TIME AND COST ESTIMATE</h4>
+  <p>Should the general copy go in here? Or only the form input info and the copy is created for the show doc?</p>
+  <p>
+    <%= form.label :estimate %>
+    <%= form.text_field :estimate %>
+  </p>
+
+  <h4>ESTIMATED TIMELINE</h4>
+  <p>"Below is the proposed earlier start time and length of engagement accounting for holidays and other breaks that will occur.
+    As with the rest of the proposal, this timeline is only an estimation and subject to change. The below timeline assumes there is one full time developer with the start date:,
+  </p>
+  <p>
+    <%= form.label :proposed_start_date %>
+    <%= form.date_field :proposed_start_date?
+    %>
+  </p>
+  <p>In this form builder, there should be a note to the preparer that the below timelines are created by an algorithm based off the assumed start date. Need to build that algorithm. </p>
+  <p>
+    <h6>Optimistic Timeline</h6>
+    <h6>Averaged Timeline</h6>
+    <h6>Pessimistic Timeline</h6>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

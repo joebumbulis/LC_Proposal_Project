@@ -1,0 +1,35 @@
+<h2>New Project:</h2>
+
+<%= form_with scope: :project, url: projects_path, local: true do |form| %>
+
+<% if @project.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@project.errors.count, "
+      error") %> prohibited this project from being saved:</h2>
+    <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<p>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+</p>
+
+<p>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+</p>
+<p>
+  <%= form.label :date_started %>
+  <%= form.date_field :date_started? %>
+</p>
+<p>
+  <%= form.submit %>
+</p>
+<% end %>
+
+<%= link_to 'Back', projects_path%>

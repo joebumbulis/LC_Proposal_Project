@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_name: MyString
+  project_name: MyString
+  prepared_for: MyString
+  prepared_by: MyString
+  date_created: 2019-04-15
+  project_goals: MyText
+  project_implementation: MyText
+  project_outline: MyText
+  estimate: MyText
+  proposed_start_date: 2019-04-15
+
+two:
+  client_name: MyString
+  project_name: MyString
+  prepared_for: MyString
+  prepared_by: MyString
+  date_created: 2019-04-15
+  project_goals: MyText
+  project_implementation: MyText
+  project_outline: MyText
+  estimate: MyText
+  proposed_start_date: 2019-04-15

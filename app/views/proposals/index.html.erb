@@ -1,0 +1,25 @@
+<h1>Proposals List</h1>
+
+<%= link_to "New Proposal", new_project_proposal_path %>
+
+
+<table>
+  <tr>
+    <th>Proposal Name</th>
+    <th>Prepared for</th>
+    <th>Prepared by</th>
+    <th>Date Created</th>
+    <th></th>
+  </tr>
+
+  <% @proposals.each do |proposal| %>
+    <tr>
+      <td><%= proposal.name %></td>
+      <td><%= proposal.prepared_for %></td>
+      <td><%= proposal.prepared_by %></td>
+      <td><%= proposal.date_created %></td>
+      <td><%= link_to 'View & Edit', project_proposal_path(@project, proposal) %></td>
+      <td><%= link_to 'Delete', project_proposal_path(@project, proposal), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</table>
