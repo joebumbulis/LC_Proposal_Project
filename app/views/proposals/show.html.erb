@@ -69,5 +69,7 @@
   </p>
 <% end %>
 
-<%= link_to "Back", project_path(@proposal.project.id) %>
-<%= link_to "Edit", edit_project_proposal_path(@proposal.project_id, @proposal.id) %>
+<%= link_to "Back", project_path(@proposal.project) %>
+<%= link_to "Edit", edit_project_proposal_path(@proposal.project, @proposal) %>
+
+<%= link_to "Email Proposal", send_email_project_proposal_path(@proposal.project, @proposal) %>

@@ -1,5 +1,5 @@
 <%= form_with model: [@project, @proposal], html: {class: "proposal_form"}, local: true do |form| %>
-  <%= form.hidden_field :project_id, value: params[:project_id]%>
+  <%= form.hidden_field :project_id, value: @project.id %>
 
     <% if @proposal.errors.any? %>
       <div id="error_explanation">
@@ -15,10 +15,6 @@
       </div>
     <% end %>
 
-  <p>
-    <span>Project:</span>
-    <%= @project.name %>
-  </p>
   <p>
     <%= form.label :proposal_name %>
     <%= form.text_field :name %>

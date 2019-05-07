@@ -1,0 +1,32 @@
+<h2>User:</h2>
+<p>
+  <span>Administrator?</span>
+  <%= @user.admin %>
+</p>
+<p>
+  <span>Email Address:</span>
+  <%= @user.email %>
+</p>
+<p>
+  <span>Username:</span>
+  <%= @user.username %>
+</p>
+<p>
+  <span>First Name:</span>
+  <%= @user.first_name %>
+</p>
+<p>
+  <span>Last Name:</span>
+  <%= @user.last_name %>
+</p>
+<p>
+  <span>Company:</span>
+  <%= @user.company_name %>
+</p>
+<p>
+  <span>Note:</span>
+  <%= @user.note %>
+</p>
+
+<%= link_to 'Back', users_path %>
+<%= link_to 'Edit', edit_user_path(@user)%>

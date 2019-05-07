@@ -11,10 +11,16 @@ class Proposal < ApplicationRecord
   validates :project_outline, presence: true
   validates :slug, presence: true
 
-  before_save :to_slug
+  before_validation :to_slug
 
   def to_slug
-    self.slug = name.parameterize.truncate(80, omission: '')
+    slugified_name = name.parameterize.truncate(80, omission: '')
+    if Proposal.where(slug: slugified_name).present?
+      self.slug = "#{slugified_name}-#{id}"
+    else
+      self.slug = slugified_name
+    end
+
   end
 
   def to_param

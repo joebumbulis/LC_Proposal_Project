@@ -1,5 +1,5 @@
-<h2>New Proposal</h2>
+<h2>New Proposal for <%= @project.name %></h2>
 
-<%= link_to "Back", project_path(params[:project_id]) %>
+<%= link_to "Back", project_path(params[:project_slug]) %>
 
 <%= render 'form' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_29_220810) do
+ActiveRecord::Schema.define(version: 2019_05_07_200035) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -46,6 +46,19 @@ ActiveRecord::Schema.define(version: 2019_04_29_220810) do
     t.string "name"
     t.string "slug"
     t.index ["project_id"], name: "index_proposals_on_project_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "password"
+    t.boolean "admin"
+    t.string "company_name"
+    t.text "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

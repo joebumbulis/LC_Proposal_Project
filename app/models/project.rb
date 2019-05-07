@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_many :proposals
+  
   validates :name, presence: { message: "must be included"}
   validates :slug, presence: true
 

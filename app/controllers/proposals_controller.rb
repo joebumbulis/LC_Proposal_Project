@@ -4,19 +4,21 @@ class ProposalsController < ApplicationController
   end
 
   def new
-    @project = Project.find(params[:project_id])
+    @project = Project.find_by(slug: params[:project_slug])
     @proposal = Proposal.new
   end
 
   def edit
-    @project = Project.find(params[:project_id])
+    @project = Project.find_by(slug: params[:project_slug])
     @proposal = Proposal.find_by(slug: params[:slug])
   end
 
   def create
     @proposal = Proposal.new(proposal_params)
     @project = @proposal.project
+
     if @proposal.save
+      flash[:notice] = 'Successfully created proposal'
       redirect_to project_proposal_path(@proposal.project, @proposal)
     else
       flash[:warn] = 'Proposal failed to save'
@@ -25,6 +27,7 @@ class ProposalsController < ApplicationController
   end
 
   def update
+    @project = Project.find_by(slug: params[:project_slug])
     @proposal = Proposal.find_by(slug: params[:slug])
 
     if @proposal.update(proposal_params)
@@ -38,10 +41,19 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.find_by(slug: params[:slug])
 
     if @proposal.destroy
-      redirect_to project_path(@proposal.project_id)
+      redirect_to project_path(@proposal.project)
     else
       flash[:warn] = 'Proposal failed to delete'
     end
+  end
+
+  def send_email
+    @project = Project.find_by(slug: params[:project_slug])
+    @proposal = Proposal.find_by(slug: params[:slug])
+    # @client = Client.find(@proposal.client_id)
+    ProposalMailer.proposal_mail(@project, @proposal).deliver_now
+    flash[:notice] = 'Proposal Email Successfully Sent to [@client.email] for [@client.name]'
+    redirect_to project_proposal_path(@proposal.project, @proposal)
   end
 
   private
