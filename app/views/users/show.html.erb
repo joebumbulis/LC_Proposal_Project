@@ -27,6 +27,14 @@
   <span>Note:</span>
   <%= @user.note %>
 </p>
+<p>
+  <span>Projects:</span>
+  <ul>
+  <% @user.projects.each do |project| %>
+    <li><%= link_to project.name, project_path(project.slug) %></li>
+  <% end %>
+</ul>
+</p>
 
 <%= link_to 'Back', users_path %>
 <%= link_to 'Edit', edit_user_path(@user) %>

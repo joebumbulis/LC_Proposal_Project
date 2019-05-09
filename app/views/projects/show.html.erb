@@ -1,8 +1,17 @@
 <h2>Project <%= @project.name %></h2>
+<div class="client_container">
+  Client:
+    <% @project.users.each do |user| %>
+    <div><%= link_to user.username, user_path(user.id) %></div>
+    <% end %>
+</div>
+
 <h6>Project Description:</h6>
 <p><%= @project.description %></p>
+
 <%= link_to "Back to all Projects", projects_path %><br>
 <%= link_to "New Proposal", new_project_proposal_path(@project) %>
+
 
 <h3>Proposals for <%= @project.name %></h3>
 

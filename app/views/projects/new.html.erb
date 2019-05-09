@@ -1,6 +1,6 @@
 <h2>New Project:</h2>
 
-<%= form_with scope: :project, url: projects_path, local: true do |form| %>
+<%= form_with model: @project, url: projects_path, local: true do |f| %>
 
 <% if @project.errors.any? %>
   <div id="error_explanation">
@@ -15,20 +15,26 @@
 <% end %>
 
 <p>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 </p>
 
 <p>
-  <%= form.label :description %>
-  <%= form.text_field :description %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
 </p>
 <p>
-  <%= form.label :date_started %>
-  <%= form.date_field :date_started? %>
+  <%= f.label :date_started %>
+  <%= f.date_field :date_started? %>
 </p>
 <p>
-  <%= form.submit %>
+  <%= f.label "Select Client"%>
+  <%= f.collection_select :user_ids, User.clients, :id, :username do |b| %>
+
+  <% end %>
+</p>
+<p>
+  <%= f.submit %>
 </p>
 <% end %>
 

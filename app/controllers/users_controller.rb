@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-  end 
+  end
 
   def create
     @user = User.new(user_params)
@@ -50,7 +50,9 @@ class UsersController < ApplicationController
                                   :password,
                                   :admin,
                                   :company_name,
-                                  :note)
+                                  :note,
+                                  project_ids: []
+                                )
   end
 
 end
