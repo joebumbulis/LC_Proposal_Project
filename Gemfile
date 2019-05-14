@@ -14,8 +14,6 @@ gem 'sassc'
 gem 'uglifier',                '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails',            '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -44,7 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  # gem 'sqlite3'
+  gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
@@ -73,10 +71,10 @@ group :test do
   gem 'guard-minitest',           '2.4.4'
 end
 
-# group :production do
-  # gem 'pg', '0.20.0'
-  # gem 'fog', '1.42'
-# end
+group :production do
+  gem 'pg', '0.20.0'
+  gem 'fog', '1.42'
+end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
