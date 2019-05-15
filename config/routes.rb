@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
   resources :users
 
-  root 'projects#index'
+  # root 'projects#index'
+  root 'static_pages#home'
 end
 #
 # resources :users
