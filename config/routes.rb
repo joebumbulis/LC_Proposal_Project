@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'user/index'
+  get 'static_pages/home'
+  get 'static_pages/help'
+  get 'static_pages/about'
+
   resources :projects, param: :slug do
     resources :proposals, param: :slug do
       member do
