@@ -13,7 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get "/users/new"
+    get create_account_path
     assert_response :success
     assert_select "title", "New User | #{@base_title}"
   end

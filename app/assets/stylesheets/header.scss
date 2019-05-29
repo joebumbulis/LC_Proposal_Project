@@ -1,0 +1,24 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "settings.scss";
+
+.container {
+  
+  .logo-container {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    float: left;
+
+    .header-logo {
+      display: flex;
+      height: 10%;
+      margin: 5px 10px;
+
+      img {
+        height: 3.5rem
+      }
+    }
+  }
+}
