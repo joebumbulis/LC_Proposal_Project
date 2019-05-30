@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_212535) do
+ActiveRecord::Schema.define(version: 2019_05_30_142516) do
 
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(version: 2019_05_08_212535) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
-    t.string "password"
     t.boolean "admin"
     t.string "company_name"
     t.text "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

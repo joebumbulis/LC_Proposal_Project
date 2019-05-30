@@ -1,7 +1,5 @@
 class Project < ApplicationRecord
   has_many :proposals
-  # has_many :projects_users
-  # has_many :users, through: :projects_users
   has_and_belongs_to_many :users
 
 
