@@ -1,3 +1,129 @@
 // Place all the styles related to the User controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* sidebar */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "settings.scss";
+
+.back-btn {
+  display: block;
+  margin: 12px 0;
+  width: 30%;
+  color: $primary;
+  &:hover {
+    color: $text-teal;
+  }
+}
+
+.delete-user {
+    float: right;
+    margin-top: 5px;
+    background-color: $deep-purple;
+    color: $light-purple;
+}
+
+.row {
+  display: flex;
+  background: $light-purple;
+  color: $primary;
+  margin: 0;
+
+  span {
+    line-height: 1;
+  }
+}
+
+
+
+aside {
+  .gravatar {
+    float: left;
+    width: 95%;
+    margin: 0 10px 20px 0;;
+  }
+
+  .gravatar_edit {
+    margin-top: 15px;
+  }
+  section.user_info {
+    margin-top: 5px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 5px;
+      margin-top: 0px;
+    }
+    p {
+      margin-bottom: 3rem;
+    }
+  }
+  .btn {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+.profile-information {
+  margin-top: 2rem;
+  max-width: 40%;
+
+  h3 {
+    margin-top: 0;
+  }
+  .name-container {
+    display: flex;
+
+    p:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  p {
+    font-size: 2rem;
+  }
+
+  span {
+    display: block;
+    font-size: 1rem;
+  }
+}
+
+.projects-list {
+  p {
+    font-size: 5rem;
+  }
+
+  .list-group-item {
+    background: $button-background;
+    border: 1px solid $purple;
+    padding: 0;
+
+    &:hover {
+      background: $purple;
+      color: $button-background;
+    }
+
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
+      text-decoration: none;
+      padding: 10px 20rem 10px 10px;
+    }
+  }
+}

@@ -5,6 +5,13 @@
 @import "bootstrap";
 @import "settings.scss";
 
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
 /**  universal **/
 body {
   padding-top: 60px;
@@ -71,61 +78,4 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-}
-
-/* header */
-.navbar {
-    background-color: $primary;
-
-    .container {
-      .nav {
-        li a {
-          color: $white;
-        }
-      }
-    }
-}
-
-#logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: $light-purple;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-
-  &:hover {
-    color: $white;
-    text-decoration: none;
-  }
-}
-
-/* footer */
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: $light-purple;
-
-  a {
-    color: $primary;
-    &:hover {
-      color: $deep-purple;
-    }
-  }
-  small {
-    float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-
-    li {
-      float: left;
-      margin-left: 15px;
-    }
-  }
 }

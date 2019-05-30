@@ -1,20 +1,46 @@
 @import "settings.scss";
 
-.container {
+.navbar {
+  background-color: $primary;
 
-  .logo-container {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    float: left;
+  .container {
 
-    .header-logo {
+    .logo-container {
+      align-items: center;
       display: flex;
-      height: 10%;
-      margin: 5px 10px;
+      flex-direction: row;
+      float: left;
 
-      img {
-        height: 3.5rem
+      .header-logo {
+        display: flex;
+        height: 10%;
+        margin: 5px 10px;
+
+        img {
+          height: 3.5rem
+        }
+      }
+
+      #logo {
+        float: left;
+        margin-right: 10px;
+        font-size: 1.7em;
+        color: $light-purple;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+        padding-top: 9px;
+        font-weight: bold;
+
+        &:hover {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    .nav {
+      li a {
+        color: $white;
       }
     }
   }

@@ -1,44 +1,56 @@
 <% provide(:title, "User Page") %>
 
-<h2>User:</h2>
-<p>
-  <span>Administrator?</span>
-  <%= @user.admin %>
-</p>
-<p>
-  <span>Email Address:</span>
-  <%= @user.email %>
-</p>
-<p>
-  <span>Username:</span>
-  <%= @user.username %>
-</p>
-<p>
-  <span>First Name:</span>
-  <%= @user.first_name %>
-</p>
-<p>
-  <span>Last Name:</span>
-  <%= @user.last_name %>
-</p>
-<p>
-  <span>Company:</span>
-  <%= @user.company_name %>
-</p>
-<p>
-  <span>Note:</span>
-  <%= @user.note %>
-</p>
-<p>
-  <span>Projects:</span>
-  <ul>
-  <% @user.projects.each do |project| %>
-    <li><%= link_to project.name, project_path(project.slug) %></li>
-  <% end %>
-</ul>
-</p>
+<%= link_to 'Back', users_path, class: 'back-btn' %>
 
-<%= link_to 'Back', users_path %>
-<%= link_to 'Edit', edit_user_path(@user) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user-info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.username %>
+      </h1>
+      <p>
+        <span>Admin: <%= @user.admin %></span>
+      </p>
 
-<%= link_to 'Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?'} %>
+      <%= link_to 'Edit', edit_user_path(@user), class: "btn" %>
+    </section>
+  </aside>
+  <section class="col-md-4 profile-information">
+    <h3>User Profile</h3>
+    <div class="name-container">
+      <p>
+        <span>First Name:</span>
+        <%= @user.first_name %>
+      </p>
+      <p>
+        <span>Last Name:</span>
+        <%= @user.last_name %>
+      </p>
+    </div>
+    <p>
+      <span>Email Address:</span>
+      <%= @user.email %>
+    </p>
+    <p>
+      <span>Company:</span>
+      <%= @user.company_name %>
+    </p>
+    <p>
+      <span>Note:</span>
+      <%= @user.note %>
+    </p>
+  </section>
+  <section class="col-md-4 projects-list">
+    <p>
+      <span>Projects:</span>
+      <ul class="list-group">
+        <% @user.projects.each do |project| %>
+        <li class="list-group-item"><%= link_to project.name, project_path(project.slug) %></li>
+        <% end %>
+      </ul>
+    </p>
+  </section>
+</div>
+
+<%= link_to 'Delete', user_path(@user), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn delete-user" %>

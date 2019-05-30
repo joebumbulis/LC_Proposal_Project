@@ -1,52 +1,44 @@
-<%= form_with model: @user, html: {class: "user_form"}, local: true do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %>
-        prohibited this user from being saved:
-      </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: @user, html: {class: "user_form"}, local: true do |f| %>
+      <%= render 'shared/error_messages' %>
 
-  <%= f.label :admin %>
-  <%= f.check_box :admin %>
+      <%= f.check_box :admin %>
+      <%= f.label :admin %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
 
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
 
-  <%= f.label :company_name %>
-  <%= f.text_field :company_name %>
+      <%= f.label :company_name %>
+      <%= f.text_field :company_name %>
 
-  <%= f.label :note %>
-  <%= f.text_field :note %>
+      <%= f.label :note %>
+      <%= f.text_field :note %>
 
-  <%= f.label :projects %><br>
-  <%= f.collection_check_boxes :project_ids, Project.all, :id, :name do |b| %>
-    <div class="collection_check_boxes">
-      <%= b.check_box %>
-      <%= b.label %>
-    </div>
-  <% end %>
+      <%= f.label :projects %><br>
+      <%= f.collection_check_boxes :project_ids, Project.all, :id, :name do |b| %>
+        <div class="collection_check_boxes">
+          <%= b.check_box %>
+          <%= b.label %>
+        </div>
+      <% end %>
 
-  <%= f.submit %>
-<% end %>
+      <%= f.submit "Create Account", class: "btn btn-primary "%>
+    <% end %>
+  </div>
+</div>

@@ -11,3 +11,9 @@ $white: #fff;
 $text-teal: #A2D9CF;
 $button-background: #b4e0d8;
 $button-text: #18181B;
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
