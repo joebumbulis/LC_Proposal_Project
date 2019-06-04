@@ -21,8 +21,10 @@ two:
 
   # joe:
   #   email: joebum@example.com
-  #   username: joebumbulis
+  #   username: MyString
   #   password_digest: <%= User.digest('password')%>
-  #   first_name: joe
-  #   last_name: bum
+  #   first_name: MyString
+  #   last_name: MyString
   #   admin: true
+  #   company_name: MyString
+  #   note: MyText
