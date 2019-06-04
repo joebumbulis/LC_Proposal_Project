@@ -18,3 +18,11 @@ two:
   admin: false
   company_name: MyString
   note: MyText
+
+  # joe:
+  #   email: joebum@example.com
+  #   username: joebumbulis
+  #   password_digest: <%= User.digest('password')%>
+  #   first_name: joe
+  #   last_name: bum
+  #   admin: true

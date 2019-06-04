@@ -28,6 +28,9 @@
   background: $light-purple;
   color: $primary;
   margin: 0;
+  &.login {
+    display: block;
+  }
 
   span {
     line-height: 1;

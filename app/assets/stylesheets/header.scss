@@ -4,7 +4,6 @@
   background-color: $primary;
 
   .container {
-
     .logo-container {
       align-items: center;
       display: flex;
@@ -38,10 +37,14 @@
       }
     }
 
-    .nav {
-      li a {
+    .nav > li a {
         color: $white;
-      }
+    }
+  }
+  .dropdown-menu {
+    background: #333333;
+    & li a:hover {
+      background-color: $purple;
     }
   }
 }
