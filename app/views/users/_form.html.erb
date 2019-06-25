@@ -1,34 +1,41 @@
 <div class="row">
+
   <div class="col-md-6 col-md-offset-3">
+    <% if @user.persisted? %>
+      <div class="gravatar_edit">
+        <%= gravatar_for @user %>
+          <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+      </div>
+    <% end %>
     <%= form_with model: @user, html: {class: "user_form"}, local: true do |f| %>
       <%= render 'shared/error_messages' %>
 
-      <%= f.check_box :admin %>
+      <%= f.check_box :admin, class: 'form-control' %>
       <%= f.label :admin %>
 
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: 'form-control' %>
 
       <%= f.label :password %>
       <%= f.password_field :password %>
 
       <%= f.label :password_confirmation, "Password Confirmation" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.label :username %>
-      <%= f.text_field :username %>
+      <%= f.text_field :username, class: 'form-control' %>
 
       <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
 
       <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
 
       <%= f.label :company_name %>
-      <%= f.text_field :company_name %>
+      <%= f.text_field :company_name, class: 'form-control' %>
 
       <%= f.label :note %>
-      <%= f.text_field :note %>
+      <%= f.text_field :note, class: 'form-control' %>
 
       <%= f.label :projects %><br>
       <%= f.collection_check_boxes :project_ids, Project.all, :id, :name do |b| %>
@@ -37,8 +44,8 @@
           <%= b.label %>
         </div>
       <% end %>
-
-      <%= f.submit "Create Account", class: "btn btn-primary "%>
+      <%= f.submit yield(:button_text), class: "btn btn-primary "%>
     <% end %>
+
   </div>
 </div>

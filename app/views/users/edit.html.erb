@@ -1,7 +1,7 @@
 <% provide(:title, "Edit User") %>
+<% provide(:button_text, "Save Changes")%>
 
 <%= link_to 'Back', user_path(@user) %>
 <h1>Edit <%= @user.username%>'s Account</h1>
-
 
 <%= render 'form' %>

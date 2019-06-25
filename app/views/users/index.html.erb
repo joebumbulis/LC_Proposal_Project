@@ -1,16 +1,31 @@
 <% provide(:title, "Users")%>
 
 <h1>Users</h1>
-<ul>
+
+<ul class=users>
   Admins:
   <% @admins.each do |admin| %>
-  <li><%= admin.first_name %> <%= admin.last_name%>: <%= link_to admin.username, user_path(admin) %></li>
+  <li>
+    <%= gravatar_for admin, size: 50 %>
+    <%= admin.first_name %> <%= admin.last_name%>: <%= link_to admin.username, user_path(admin) %>
+    <% if current_user.admin? && !current_user?(admin) %>
+      | <%= link_to "delete", admin, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+    <% end %>
+  </li>
   <% end %>
 </ul>
-<ul>
+
+<ul class="users">
   Clients:
   <% @clients.each do |client| %>
-    <li>  <%= client.first_name %> <%= client.last_name%>:  <%= link_to client.username, user_path(client) %></li>
+    <li>
+      <%= gravatar_for client, size: 50 %>
+      <%= client.first_name %> <%= client.last_name%>:  <%= link_to client.username, user_path(client) %>
+      <% if current_user.admin? && !current_user?(client) %>
+        | <%= link_to "delete", client, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
 

@@ -6,6 +6,20 @@
 @import "bootstrap";
 @import "settings.scss";
 
+/*** users index page *****/
+.users {
+  list-style: none;
+  margin: 0;
+  font-size: 24px;
+  li {
+    overflow: auto;
+    padding: 10px 0 0 30px;;
+    border-bottom: 1px solid $gray-lighter;
+    font-size: 16px;
+  }
+}
+
+/*** user page *****/
 .back-btn {
   display: block;
   margin: 12px 0;

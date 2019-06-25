@@ -4,8 +4,8 @@ one:
   username: MyString
   first_name: MyString
   last_name: MyString
-  # password_digest: MyString
-  admin: false
+  password_digest: <%= User.digest('password')%>
+  admin: true
   company_name: MyString
   note: MyText
 
@@ -14,7 +14,7 @@ two:
   username: MyString
   first_name: MyString
   last_name: MyString
-  # password_digest: MyString
+  password_digest: <%= User.digest('password')%>
   admin: false
   company_name: MyString
   note: MyText
